@@ -1,0 +1,15 @@
+services:
+  gallery:
+    build: .
+    container_name: gallery
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    volumes:
+      # Change the left side to the share holding your gallery-dl output
+      - /mnt/user/media/gallery-dl:/images:ro
+      # Index + thumbnail cache (safe to delete; it is rebuilt)
+      - /mnt/user/appdata/gallery:/data
+    environment:
+      REINDEX_MINUTES: "30"   # periodic scan for new downloads, 0 = manual only
+      THUMB_WORKERS: "2"      # background thumbnail threads

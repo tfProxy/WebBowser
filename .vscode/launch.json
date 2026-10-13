@@ -1,0 +1,20 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Gallery (local test)",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "uvicorn",
+      "args": ["app.main:app", "--port", "8000", "--reload"],
+      "cwd": "${workspaceFolder}",
+      "env": {
+        // Change to your gallery-dl base-directory (the folder containing "furaffinity")
+        "IMAGES_DIR": "C:\\path\\to\\gallery-dl",
+        "DATA_DIR": "${workspaceFolder}\\.data",
+        "REINDEX_MINUTES": "0"
+      },
+      "justMyCode": true
+    }
+  ]
+}

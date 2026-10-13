@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Gallery">
+<meta name="theme-color" content="#111214">
+<title>Gallery</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header id="top">
+  <nav>
+    <a href="#" id="tabBrowse" class="tab">Browse</a>
+    <a href="#view=artists" id="tabArtists" class="tab">Artists</a>
+  </nav>
+  <form id="searchForm" role="search">
+    <input id="search" type="search" placeholder="Search title, artist, tag, description" enterkeyhint="search" autocomplete="off" autocapitalize="off">
+  </form>
+  <button id="menuBtn" aria-label="Options">&#9776;</button>
+</header>
+
+<div id="filters"></div>
+
+<main id="browse">
+  <div id="grid"></div>
+  <div id="sentinel"></div>
+  <p id="empty" hidden>Nothing found.</p>
+</main>
+
+<main id="artistsView" hidden>
+  <input id="artistFilter" type="search" placeholder="Filter artists" autocomplete="off" autocapitalize="off">
+  <div id="artistList"></div>
+</main>
+
+<div id="menu" class="modal" hidden>
+  <div class="panel">
+    <label>Sort
+      <select id="sortSel">
+        <option value="new">Newest</option>
+        <option value="old">Oldest</option>
+        <option value="fav">Most favorited</option>
+        <option value="views">Most viewed</option>
+        <option value="added">Recently added to disk</option>
+        <option value="random">Random</option>
+      </select>
+    </label>
+    <label>Rating
+      <select id="ratingSel"><option value="">Any</option></select>
+    </label>
+    <label class="row"><input type="checkbox" id="starredChk"> Starred only</label>
+    <button id="shuffleBtn">Reshuffle random</button>
+    <hr>
+    <div id="statusTxt"></div>
+    <button id="reindexBtn">Scan for new images</button>
+    <button id="menuClose" class="primary">Done</button>
+  </div>
+</div>
+
+<div id="viewer" hidden>
+  <div id="stage">
+    <img id="vimg" alt="" draggable="false">
+    <div id="nofile" hidden><p id="nofileName"></p><a id="nofileLink" class="btn" target="_blank">Open file</a></div>
+  </div>
+  <div class="bar" id="vbar">
+    <button id="vClose" aria-label="Close">&#10005;</button>
+    <span id="vTitle"></span>
+    <button id="vStar" aria-label="Star">&#9734;</button>
+    <button id="vInfo" aria-label="Info">&#9432;</button>
+  </div>
+  <button class="nav" id="vPrev" aria-label="Previous">&#8249;</button>
+  <button class="nav" id="vNext" aria-label="Next">&#8250;</button>
+  <div id="sheet">
+    <div id="sheetBody"></div>
+  </div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

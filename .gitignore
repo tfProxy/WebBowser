@@ -1,0 +1,17 @@
+# Python
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+# Local runtime data (index, thumbnails, stars)
+.data/
+
+# Windows junk
+nul
+Thumbs.db
+desktop.ini
+
+# Editor (keep launch.json for the README instructions)
+.vscode/*
+!.vscode/launch.json
