@@ -69,7 +69,12 @@ main { padding: 6px calc(4px + var(--safe-r)) calc(40px + var(--safe-b)) calc(4p
 #viewer.chromeless .bar, #viewer.chromeless .nav { opacity: 0; pointer-events: none; }
 .nav { position: absolute; top: 50%; transform: translateY(-50%); z-index: 2; font-size: 34px; line-height: 1; width: 52px; height: 80px; padding: 0; background: #0006; border-color: transparent; transition: opacity .2s; }
 #vPrev { left: calc(8px + var(--safe-l)); } #vNext { right: calc(8px + var(--safe-r)); }
-@media (hover: none) { .nav { display: none; } }
+@media (hover: none) {   /* touch: small faint buttons in the bottom corners */
+  .nav { top: auto; bottom: calc(14px + var(--safe-b, 0px)); transform: none; width: 56px; height: 56px; border-radius: 50%;
+    font-size: 30px; opacity: .35; background: #0008; border-color: #fff3; }
+  .nav:active { opacity: .8; }
+  #viewer.chromeless .nav { opacity: 0; }
+}
 
 #sheet { position: absolute; left: 0; right: 0; bottom: 0; z-index: 3; max-height: 70%; overflow-y: auto; -webkit-overflow-scrolling: touch;
   background: var(--panel); border-radius: 16px 16px 0 0; transform: translateY(100%); transition: transform .25s ease; touch-action: pan-y;
