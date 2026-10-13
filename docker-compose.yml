@@ -1,6 +1,6 @@
 services:
   gallery:
-    build: .
+    build: https://github.com/tfProxy/WebBowser.git#main
     container_name: gallery
     restart: unless-stopped
     ports:
